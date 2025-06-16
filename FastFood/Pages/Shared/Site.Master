@@ -1,0 +1,159 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="FastFood.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> FastFood</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="/Content/images/LogoHeaderBar.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .body-content {
+            min-height: calc(100vh - 200px);
+            padding-bottom: 60px;
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #dc3545;
+            color: white;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+            footer .container {
+                width: 100%;
+                max-width: none;
+                padding: 0 15px;
+            }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav style="background-color: #FDB913; height: 40px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; font-family: Arial, sans-serif;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px; font-weight: bold;">
+                <span>📍 HAHAHAHA</span>
+                <div class="d-flex gap-2">
+                    <a href="/login" class="btn btn-danger rounded-pill fw-bold px-4 py-1">Đăng Nhập</a>
+                    <a href="/register" class="btn btn-outline-danger rounded-pill fw-bold px-4 py-1 text-light">Đăng Ký</a>
+                </div>
+            </div>
+        </nav>
+
+        <nav style="background-color: #e21836; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; font-family: Arial, sans-serif;">
+            <div style="display: flex; align-items: center; gap: 30px;">
+                <img src="/Content/images/LogoHeaderBar.png" alt="FastFood" style="height: 50px;" />
+
+                <a href="#" style="color: red; background-color: #fff0f0; padding: 8px 16px; border-radius: 10px; font-weight: bold; text-decoration: none;">TRANG CHỦ</a>
+                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">VỀ FASTFOOD</a>
+                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">THỰC ĐƠN</a>
+                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">KHUYẾN MÃI</a>
+                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">DỊCH VỤ</a>
+                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">TIN TỨC</a>
+                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">CỬA HÀNG</a>
+                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">LIÊN HỆ</a>
+                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">TUYỂN DỤNG</a>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button style="background-color: #FDB913; border: none; padding: 10px 20px; border-radius: 30px; font-weight: bold;">Order Now</button>
+                <div style="text-align: right;">
+                    <div style="color: white; font-weight: bold;">📞 1900-1533</div>
+                    <div style="font-size: 10px; background-color: #FDB913; padding: 2px 6px; border-radius: 4px; font-weight: bold;">GIAO HÀNG TẬN NƠI</div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+        </div>
+        <footer class="bg-danger text-white pt-4 mt-4">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-md-2">
+                        <img src="/Content/images/LogoHeaderBar.png" alt="FastFood" style="width: 110px;" class="mb-2" />
+                    </div>
+                    <div class="col-md-4">
+
+                        <p class="fw-bold mb-1">CÔNG TY TNHH FASTFOOD VIỆT NAM</p>
+                        <p class="mb-1">Địa chỉ: Tầng 5G, Tòa nhà Duy Tân Tower, TP. Đà Nẵng</p>
+                        <p class="mb-1">Điện thoại: (028) 39309168</p>
+                        <p class="mb-1">Tổng đài: 1900-1533</p>
+                        <p class="mb-1">MST: 0303883266</p>
+                        <p>Ngày cấp: 15/06/2025 – Nơi cấp: Cục Thuế TP.Đà Nẵng</p>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="fw-bold">CHÍNH SÁCH</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">Liên hệ</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Chính sách & Quy định</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Thanh toán & Đặt hàng</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Vận chuyển & Giao hàng</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Bảo mật thông tin</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="fw-bold">KẾT NỐI VỚI CHÚNG TÔI</h6>
+                        <p><i class="bi bi-facebook"></i>Facebook</p>
+                        <img src="/Content/images/bocongthuong.png" alt="Bộ Công Thương" class="mb-3" style="width: 120px;" />
+                        <h6 class="fw-bold">TẢI ỨNG DỤNG</h6>
+                        <div class="d-flex gap-2">
+                            <img src="/Content/images/googleplay.png" alt="Google Play" style="height: 40px;" />
+                            <img src="/Content/images/appstore.png" alt="App Store" style="height: 40px;" />
+                        </div>
+                    </div>
+                </div>
+                <hr class="bg-white mt-4" />
+                <div class="text-center pb-3">
+                    © <%= DateTime.Now.Year %> FastFood Việt Nam
+                </div>
+            </div>
+        </footer>
+    </form>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</html>
