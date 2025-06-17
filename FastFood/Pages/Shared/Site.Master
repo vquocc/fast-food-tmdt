@@ -16,8 +16,12 @@
     <link href="/Content/images/LogoHeaderBar.png" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
     <style>
-        html, body {
+        html, body, for {
             height: 100%;
             margin: 0;
         }
@@ -29,6 +33,7 @@
 
         footer {
             position: relative;
+            margin-top: 30px;
             bottom: 0;
             width: 100%;
             background-color: #dc3545;
@@ -69,7 +74,7 @@
             <div style="display: flex; align-items: center; gap: 12px;">
             </div>
             <div style="display: flex; align-items: center; gap: 16px; font-weight: bold;">
-                <span>📍 HAHAHAHA</span>
+                <span>📍 Mei Kukada</span>
                 <div class="d-flex gap-2">
                     <a href="/login" class="btn btn-danger rounded-pill fw-bold px-4 py-1">Đăng Nhập</a>
                     <a href="/register" class="btn btn-outline-danger rounded-pill fw-bold px-4 py-1 text-light">Đăng Ký</a>
@@ -84,18 +89,21 @@
                 <a href="#" style="color: red; background-color: #fff0f0; padding: 8px 16px; border-radius: 10px; font-weight: bold; text-decoration: none;">TRANG CHỦ</a>
                 <a href="#" style="color: white; font-weight: bold; text-decoration: none;">VỀ FASTFOOD</a>
                 <a href="#" style="color: white; font-weight: bold; text-decoration: none;">THỰC ĐƠN</a>
-                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">KHUYẾN MÃI</a>
-                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">DỊCH VỤ</a>
-                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">TIN TỨC</a>
                 <a href="#" style="color: white; font-weight: bold; text-decoration: none;">CỬA HÀNG</a>
-                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">LIÊN HỆ</a>
-                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">TUYỂN DỤNG</a>
             </div>
 
             <div style="display: flex; align-items: center; gap: 12px;">
-                <button style="background-color: #FDB913; border: none; padding: 10px 20px; border-radius: 30px; font-weight: bold;">Order Now</button>
+                <button type="button" class="position-relative" style="background-color: white; border: none; padding: 5px 10px; border-radius: 30px;">
+                    <a>
+                        <i class="bi bi-basket" style="font-size: 1.5rem;color:#da001c"></i>
+                        <sapm style="color:#da001c">Order Now</sapm>
+                    </a>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">3
+                    <span class="visually-hidden">unread messages</span>
+                    </span>
+                </button>
                 <div style="text-align: right;">
-                    <div style="color: white; font-weight: bold;">📞 1900-1533</div>
+                    <div style="color: white; font-weight: bold;">📞 0394383782</div>
                     <div style="font-size: 10px; background-color: #FDB913; padding: 2px 6px; border-radius: 4px; font-weight: bold;">GIAO HÀNG TẬN NƠI</div>
                 </div>
             </div>
@@ -104,7 +112,6 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
         </div>
         <footer class="bg-danger text-white pt-4 mt-4">
             <div class="container">
