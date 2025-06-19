@@ -13,6 +13,7 @@ CREATE TABLE Products (
     ProductName NVARCHAR(100) NOT NULL,
     Description NVARCHAR(255),
     Price DECIMAL(10,2) NOT NULL,
+    Product_Image VARCHAR(255),
     AverageRating DECIMAL(3,2) DEFAULT 0.00, -- Store average rating (0.00 to 5.00)
     ReviewCount INT DEFAULT 0, -- Store number of reviews
     IsActive BIT DEFAULT 1, -- To enable/disable products
