@@ -47,6 +47,24 @@
                 max-width: none;
                 padding: 0 15px;
             }
+
+        .menu-item {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+        }
+
+            .menu-item:hover {
+                background-color: antiquewhite;
+                color: red;
+            }
+
+            .menu-item .active {
+                color: red;
+                background-color: #fff0f0;
+            }
     </style>
 </head>
 <body>
@@ -84,19 +102,23 @@
 
         <nav style="background-color: #e21836; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; font-family: Arial, sans-serif;">
             <div style="display: flex; align-items: center; gap: 30px;">
-                <img src="/Content/images/LogoHeaderBar.png" alt="FastFood" style="height: 50px;" />
+                <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Content/images/LogoHeaderBar.png" AlternateText="FastFood" Style="height: 50px;" />
 
-                <a href="#" style="color: red; background-color: #fff0f0; padding: 8px 16px; border-radius: 10px; font-weight: bold; text-decoration: none;">TRANG CHỦ</a>
-                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">VỀ FASTFOOD</a>
-                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">THỰC ĐƠN</a>
-                <a href="#" style="color: white; font-weight: bold; text-decoration: none;">CỬA HÀNG</a>
+                <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Pages/HomePage.aspx" CssClass="menu-item">TRANG CHỦ</asp:HyperLink>
+
+                <asp:HyperLink ID="lnkAbout" runat="server" NavigateUrl="#" CssClass="menu-item">VỀ FASTFOOD</asp:HyperLink>
+
+                <asp:HyperLink ID="lnkMenu" runat="server" NavigateUrl="~/Pages/MenuPage.aspx" CssClass="menu-item">THỰC ĐƠN </asp:HyperLink>
+
+                <asp:HyperLink ID="lnkStore" runat="server" NavigateUrl="#" CssClass="menu-item">CỬA HÀNG </asp:HyperLink>
             </div>
+
 
             <div style="display: flex; align-items: center; gap: 12px;">
                 <button type="button" class="position-relative" style="background-color: white; border: none; padding: 5px 10px; border-radius: 30px;">
                     <a>
-                        <i class="bi bi-basket" style="font-size: 1.5rem;color:#da001c"></i>
-                        <sapm style="color:#da001c">Order Now</sapm>
+                        <i class="bi bi-basket" style="font-size: 1.5rem; color: #da001c"></i>
+                        <sapm style="color: #da001c">Order Now</sapm>
                     </a>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">3
                     <span class="visually-hidden">unread messages</span>
