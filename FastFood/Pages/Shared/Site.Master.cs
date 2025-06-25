@@ -11,7 +11,19 @@ namespace FastFood
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        protected void toggleLogin(object sender, EventArgs e)
+        {
+            if (loginForm.Style["display"] == "none")
+            {
+                loginForm.Style["display"] = "block";
+            }
+            else
+            {
+                loginForm.Style["display"] = "none";
+            }
         }
     }
 }

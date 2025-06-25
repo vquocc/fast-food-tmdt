@@ -18,7 +18,7 @@
             border-radius: 8px;
             border: 1px solid #ccc;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            max-width: 800px; /* Giới hạn tối đa nếu cần */
+            max-width: 800px; 
         }
     </style>
     <div class="d-flex flex-column align-items-center">

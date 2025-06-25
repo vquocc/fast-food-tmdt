@@ -94,8 +94,17 @@
             <div style="display: flex; align-items: center; gap: 16px; font-weight: bold;">
                 <span>📍 Mei Kukada</span>
                 <div class="d-flex gap-2">
-                    <a href="/login" class="btn btn-danger rounded-pill fw-bold px-4 py-1">Đăng Nhập</a>
-                    <a href="/register" class="btn btn-outline-danger rounded-pill fw-bold px-4 py-1 text-light">Đăng Ký</a>
+                    <%--<a href="/login" class="btn btn-danger rounded-pill fw-bold px-4 py-1">Đăng Nhập</a>
+                    <a href="/register" class="btn btn-outline-danger rounded-pill fw-bold px-4 py-1 text-light">Đăng Ký</a>--%>
+                    <asp:Button ID="btnShowLogin" runat="server" Text="Đăng Nhập" class="btn btn-danger rounded-pill fw-bold px-4 py-1" OnClick="toggleLogin"/>
+                    <div id="loginForm" style="display: none; margin-top: 20px;" runat="server">
+                        Tài khoản:
+                        <asp:TextBox ID="txtTaiKhoan" runat="server"></asp:TextBox><br />
+                        Mật khẩu:
+                        <asp:TextBox ID="txtMatKhau" runat="server" TextMode="Password"></asp:TextBox><br />
+                        <asp:Button ID="btnDangNhap" runat="server" Text="Đăng nhập"  />
+                    </div>
+
                 </div>
             </div>
         </nav>
