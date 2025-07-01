@@ -34,7 +34,6 @@ CREATE TABLE Users (
     PasswordHash NVARCHAR(255) NOT NULL,
     RoleID INT NOT NULL,
     FullName NVARCHAR(100),
-    Email NVARCHAR(100),
     CreatedAt DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
 );
@@ -87,14 +86,3 @@ CREATE TABLE Cart (
     FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 );
 
--- Table ProductReviews 
-CREATE TABLE ProductReviews (
-    ReviewID INT PRIMARY KEY IDENTITY(1,1),
-    ProductID INT NOT NULL,
-    UserID INT NOT NULL,
-    Rating INT NOT NULL CHECK (Rating >= 0 AND Rating <= 5),
-    Comment NVARCHAR(500),
-    CreatedAt DATETIME DEFAULT GETDATE(),
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
-);
