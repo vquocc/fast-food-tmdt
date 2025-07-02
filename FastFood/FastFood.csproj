@@ -127,8 +127,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Components\ProductItem.ascx" />
-    <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\HomePage.aspx" />
+    <Content Include="Pages\img\login.jpg" />
+    <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Pages\MenuPage.aspx" />
     <Content Include="ScriptDB.sql" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -206,19 +207,19 @@
     <Compile Include="Pages\Components\ProductItem.ascx.designer.cs">
       <DependentUpon>ProductItem.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenuPage.aspx.cs">
       <DependentUpon>MenuPage.aspx</DependentUpon>
