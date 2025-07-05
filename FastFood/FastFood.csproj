@@ -127,6 +127,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Components\ProductItem.ascx" />
+    <Content Include="Pages\CuaHang.aspx" />
     <Content Include="Pages\HomePage.aspx" />
     <Content Include="Pages\img\login.jpg" />
     <Content Include="Pages\LoginPage.aspx" />
@@ -206,6 +207,13 @@
     </Compile>
     <Compile Include="Pages\Components\ProductItem.ascx.designer.cs">
       <DependentUpon>ProductItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CuaHang.aspx.cs">
+      <DependentUpon>CuaHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CuaHang.aspx.designer.cs">
+      <DependentUpon>CuaHang.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

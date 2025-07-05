@@ -13,6 +13,7 @@ namespace FastFood.Pages
 {
     public partial class LoginPage : System.Web.UI.Page
     {
+        string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,7 +21,54 @@ namespace FastFood.Pages
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            string userName = txt_UserName.Text;
+            string password = txt_Password.Text;
+            string hashPassWord = HashPassword(password);
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT UserID, Username, RoleID, Fullname FROM Users WHERE UserName = @UserName AND PassWordHash = @PassWordHash";
 
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UserName", userName);
+                cmd.Parameters.AddWithValue("@PassWordHash", hashPassWord);
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        Session["UserID"] = reader["UserID"].ToString();
+                        Session["UserName"] = reader["UserName"].ToString();
+                        Session["RoleID"] = reader["RoleID"].ToString();
+                        Session["FullName"] = reader["FullName"].ToString();
+                        string roleID = reader["RoleID"].ToString();
+
+                        if (roleID == "1") 
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "alert",
+                                "Swal.fire('Thành công', 'Đăng nhập thành công!', 'success').then(() => { window.location='AdminDashboard.aspx'; });", true);
+                        }
+                        else 
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "alert",
+                                "Swal.fire('Thành công', 'Đăng nhập thành công!', 'success').then(() => { window.location='HomePage.aspx'; });", true);
+                        }
+                        
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "Swal.fire('Lỗi', 'Tài khoản hoặc mật khẩu không chính xác!', 'error');", true);
+                    }
+                }
+                catch (Exception err)
+                {
+
+                    string errorMsg = HttpUtility.JavaScriptStringEncode(err.Message);
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", $"Swal.fire('Lỗi', '{errorMsg}', 'error');", true);
+
+                }
+
+            }
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
@@ -35,7 +83,7 @@ namespace FastFood.Pages
             }
 
             string hashedPassword = HashPassword(password);
-            string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "INSERT INTO Users(Fullname, UserName, PasswordHash, RoleID) VALUES(@FullName, @UserName, @PasswordHash,  @RoleID)";
@@ -48,7 +96,7 @@ namespace FastFood.Pages
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert","Swal.fire('Thành công', 'Đăng ký thành công!', 'success').then(() => { showLogin(); });", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "Swal.fire('Thành công', 'Đăng ký thành công!', 'success').then(() => { showLogin(); });", true);
 
                 }
                 catch (Exception ex)
