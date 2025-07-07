@@ -126,6 +126,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\AdDashboard.aspx" />
+    <Content Include="Pages\AdProducts.aspx" />
     <Content Include="Pages\CategoryProduct.aspx" />
     <Content Include="Pages\Components\ProductItem.ascx" />
     <Content Include="Pages\CuaHang.aspx" />
@@ -163,6 +165,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="ConnectionStrings.config" />
+    <Content Include="Pages\Shared\SiteAdmin.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -201,6 +204,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdDashboard.aspx.cs">
+      <DependentUpon>AdDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdDashboard.aspx.designer.cs">
+      <DependentUpon>AdDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdProducts.aspx.cs">
+      <DependentUpon>AdProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdProducts.aspx.designer.cs">
+      <DependentUpon>AdProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CategoryProduct.aspx.cs">
       <DependentUpon>CategoryProduct.aspx</DependentUpon>
@@ -244,6 +261,13 @@
     <Compile Include="Pages\MenuPage.aspx.designer.cs">
       <DependentUpon>MenuPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Shared\SiteAdmin.Master.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Shared\SiteAdmin.Master.designer.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Shared\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -271,8 +295,6 @@
     <Folder Include="App_Code\DataAccess\" />
     <Folder Include="App_Code\Services\" />
     <Folder Include="Models\" />
-    <Folder Include="Pages\Admin\" />
-    <Folder Include="Pages\User\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
