@@ -12,6 +12,7 @@ namespace FastFood.Pages
 {
     public partial class MenuPage : System.Web.UI.Page
     {
+        string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,7 +23,7 @@ namespace FastFood.Pages
 
         private void LoadProductsFromDB()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
+            
             string query = "SELECT ProductName, Price, Product_Image, AverageRating, ReviewCount FROM Products WHERE IsActive = 1";
 
             using (SqlConnection conn = new SqlConnection(connectionString))

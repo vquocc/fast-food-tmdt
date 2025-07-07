@@ -11,19 +11,24 @@ namespace FastFood
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["UserName"] != null)
+                {
+                    lnkLogin.Visible = false;
+                    btnLogout.Visible = true;
+                }
+                else
+                {
+                    lnkLogin.Visible = true;
+                    btnLogout.Visible = false;
+                }
+            }
         }
-
-        protected void toggleLogin(object sender, EventArgs e)
+        protected void btnLogout_Click(object sender, EventArgs e)
         {
-            if (loginForm.Style["display"] == "none")
-            {
-                loginForm.Style["display"] = "block";
-            }
-            else
-            {
-                loginForm.Style["display"] = "none";
-            }
+            Session.Clear();
+            Response.Redirect("~/Pages/HomePage.aspx");
         }
     }
 }

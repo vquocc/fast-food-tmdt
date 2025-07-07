@@ -3,7 +3,8 @@ CREATE TABLE Categories (
     CategoryID INT PRIMARY KEY IDENTITY(1,1),
     CategoryName NVARCHAR(100) NOT NULL,
     Description NVARCHAR(255),
-    CreatedAt DATETIME DEFAULT GETDATE()
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    Img_url NVARCHAR(MAX)
 );
 
 -- Table Products 

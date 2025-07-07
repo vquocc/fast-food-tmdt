@@ -21,7 +21,6 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     <style>
         html, body, for {
             height: 100%;
@@ -94,23 +93,10 @@
             <div style="display: flex; align-items: center; gap: 12px;">
             </div>
             <div style="display: flex; align-items: center; gap: 16px; font-weight: bold;">
-                <span>📍 Mei Kukada</span>
+                <span><%=Session["Username"] != null ? Session["Username"].ToString() : "Rei Kamiki" %></span>
                 <div class="d-flex gap-2">
-<<<<<<< HEAD
-                    <%--<a href="/login" class="btn btn-danger rounded-pill fw-bold px-4 py-1">Đăng Nhập</a>
-                    <a href="/register" class="btn btn-outline-danger rounded-pill fw-bold px-4 py-1 text-light">Đăng Ký</a>--%>
-                    <asp:Button ID="btnShowLogin" runat="server" Text="Đăng Nhập" class="btn btn-danger rounded-pill fw-bold px-4 py-1" OnClick="toggleLogin"/>
-                    <div id="loginForm" style="display: none; margin-top: 20px;" runat="server">
-                        Tài khoản:
-                        <asp:TextBox ID="txtTaiKhoan" runat="server"></asp:TextBox><br />
-                        Mật khẩu:
-                        <asp:TextBox ID="txtMatKhau" runat="server" TextMode="Password"></asp:TextBox><br />
-                        <asp:Button ID="btnDangNhap" runat="server" Text="Đăng nhập"  />
-                    </div>
-
-=======
-                    <asp:HyperLink runat="server" NavigateUrl="../LoginPage.aspx" CssClass="btn btn-danger rounded-pill fw-bold px-4 py-1">Đăng Nhập</asp:HyperLink>
->>>>>>> 8baf94f066c3265498177d56ec8c7c2f4cf7e41b
+                    <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="../LoginPage.aspx" CssClass="btn btn-danger rounded-pill fw-bold px-4 py-1">Đăng Nhập</asp:HyperLink>
+                    <asp:Button ID="btnLogout" runat="server" Text="Đăng Xuất" CssClass="btn btn-danger rounded-pill fw-bold px-4 py-1" OnClick="btnLogout_Click" Visible="false" />
                 </div>
             </div>
         </nav>
@@ -121,11 +107,9 @@
 
                 <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Pages/HomePage.aspx" CssClass="menu-item">TRANG CHỦ</asp:HyperLink>
 
-                <asp:HyperLink ID="lnkAbout" runat="server" NavigateUrl="#" CssClass="menu-item">VỀ FASTFOOD</asp:HyperLink>
-
                 <asp:HyperLink ID="lnkMenu" runat="server" NavigateUrl="~/Pages/MenuPage.aspx" CssClass="menu-item">THỰC ĐƠN </asp:HyperLink>
 
-                <asp:HyperLink ID="lnkStore" runat="server" NavigateUrl="#" CssClass="menu-item">CỬA HÀNG </asp:HyperLink>
+                <asp:HyperLink ID="lnkStore" runat="server" NavigateUrl="~/Pages/CuaHang.aspx" CssClass="menu-item">CỬA HÀNG </asp:HyperLink>
             </div>
 
 

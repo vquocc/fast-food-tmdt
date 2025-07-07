@@ -15,49 +15,22 @@ namespace FastFood
     {
 
         /// <summary>
-        /// btnShowLogin control.
+        /// lnkLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnShowLogin;
+        protected global::System.Web.UI.WebControls.HyperLink lnkLogin;
 
         /// <summary>
-        /// loginForm control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loginForm;
-
-        /// <summary>
-        /// txtTaiKhoan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTaiKhoan;
-
-        /// <summary>
-        /// txtMatKhau control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMatKhau;
-
-        /// <summary>
-        /// btnDangNhap control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDangNhap;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
 
         /// <summary>
         /// imgLogo control.
@@ -76,15 +49,6 @@ namespace FastFood
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkHome;
-
-        /// <summary>
-        /// lnkAbout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAbout;
 
         /// <summary>
         /// lnkMenu control.
