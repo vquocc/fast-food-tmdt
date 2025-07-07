@@ -126,6 +126,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\CategoryProduct.aspx" />
     <Content Include="Pages\Components\ProductItem.ascx" />
     <Content Include="Pages\CuaHang.aspx" />
     <Content Include="Pages\HomePage.aspx" />
@@ -200,6 +201,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CategoryProduct.aspx.cs">
+      <DependentUpon>CategoryProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CategoryProduct.aspx.designer.cs">
+      <DependentUpon>CategoryProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Components\ProductItem.ascx.cs">
       <DependentUpon>ProductItem.ascx</DependentUpon>

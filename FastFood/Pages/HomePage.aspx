@@ -22,13 +22,14 @@
         #menu-item {
             box-sizing: border-box;
             border-radius: 15px;
-            width: 200px;
+            width: 400px;
             height: 200px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            gap: 20px;
         }
 
             #menu-item:hover {
@@ -99,43 +100,21 @@
         <div>
             <h3>MENU</h3>
         </div>
-        <div class="d-flex justify-content-between" style="width: 100%;">
-            <div id="menu-item">
-                <div class="menu-image">
-                    <img style="width: 150px; height: 150px" src="https://d2vuyvo9qdtgo9.cloudfront.net/foods/October2023/S2b8K7g2tM6cDksrAdVv.webp" />
-                </div>
-                <h6>Hamberger</h6>
-            </div>
-            <div id="menu-item">
-                <div class="menu-image">
-                    <img style="width: 150px; height: 150px" src="https://d2vuyvo9qdtgo9.cloudfront.net/foods/October2023/naEEY2DK99qNkcH9z2A1.webp" />
-                </div>
-                <h6>gà rán</h6>
-            </div>
-            <div id="menu-item">
-                <div class="menu-image">
-                    <img style="width: 150px; height: 150px" src="https://d2vuyvo9qdtgo9.cloudfront.net/foods/October2023/Mdfc31HLjuorHac10yKX.webp" />
-                </div>
-                <h6>combo no nê</h6>
-            </div>
-            <div id="menu-item">
-                <div class="menu-image">
-                    <img style="width: 150px; height: 150px" src="https://d2vuyvo9qdtgo9.cloudfront.net/foods/April2024/mGCLbj8uP9hNgZVgqRJP.png" />
-                </div>
-                <h6>kem</h6>
-            </div>
-            <div id="menu-item">
-                <div class="menu-image">
-                    <img style="width: 150px; height: 150px" src="https://d2vuyvo9qdtgo9.cloudfront.net/foods/October2023/xio5G2rAIFfvOoOe6CXY.webp" />
-                </div>
-                <h6>Nước giải khát</h6>
-            </div>
-            <div id="menu-item">
-                <div class="menu-image">
-                    <img style="width: 150px; height: 150px" src="https://d2vuyvo9qdtgo9.cloudfront.net/foods/November2023/4el9aA1delRrNDQJmkfu.webp" />
-                </div>
-                <h6>Happy Box</h6>
-            </div>
+        <div class="d-flex " style="width: 100%;">
+            <asp:Repeater ID="rptCategories" runat="server" OnItemCommand="rptCategories_ItemCommand">
+                <ItemTemplate>
+                    <div id="menu-item">
+                        <div class="menu-image">
+                            <img style="width: 150px; height: 150px" src='<%# Eval("Img_url") %>' />
+                        </div>
+                        <h6>
+                            <asp:LinkButton ID="lnkCategory" runat="server" CommandName="ViewProducts" CommandArgument='<%# Eval("CategoryID") %>' CssClass="text-decoration-none text-dark">
+                        <%# Eval("CategoryName") %>
+                            </asp:LinkButton>
+                        </h6>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
 
     </div>
