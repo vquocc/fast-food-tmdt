@@ -18,11 +18,7 @@
             border-radius: 8px;
             border: 1px solid #ccc;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-<<<<<<< HEAD
             max-width: 800px; 
-=======
-            max-width: 800px;   
->>>>>>> 8baf94f066c3265498177d56ec8c7c2f4cf7e41b
         }
     </style>
     <div class="d-flex flex-column align-items-center">
