@@ -104,8 +104,8 @@
             <nav class="admin-sidebar">
                 <a id="adminDashboard" runat="server" href="~/Pages/AdDashboard.aspx">🏠 Trang chủ</a>
                 <a id="adminProducts" runat="server" href="~/Pages/AdProducts.aspx">🍔 Sản phẩm</a>
-                <a runat="server" href="#">🧑‍🤝‍🧑 Khách hàng</a>
-                <a runat="server" href="#">🛒 Đơn hàng</a>
+                <a id="adminUser" runat="server" href="~/Pages/AdUser.aspx">🧑‍🤝‍🧑 Khách hàng</a>
+                <a id="adminOrder" runat="server" href="~/Pages/AdOrder.aspx">🛒 Đơn hàng</a>
                 <a runat="server" href="#">📈 Thống kê</a>
                 <a href="/">⬅ Về trang người dùng</a>
             </nav>

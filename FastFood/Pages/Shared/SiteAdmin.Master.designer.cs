@@ -60,6 +60,24 @@ namespace FastFood.Pages.Shared
         protected global::System.Web.UI.HtmlControls.HtmlAnchor adminProducts;
 
         /// <summary>
+        /// adminUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor adminUser;
+
+        /// <summary>
+        /// adminOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor adminOrder;
+
+        /// <summary>
         /// mainContentPlaceholder control.
         /// </summary>
         /// <remarks>
