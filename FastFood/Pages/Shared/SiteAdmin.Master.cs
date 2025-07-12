@@ -18,6 +18,8 @@ namespace FastFood.Pages.Shared
                 adminDashboard.Attributes["class"] = "active";
             else if (currentUrl.EndsWith("adproducts"))
                 adminProducts.Attributes["class"] = "active";
+            else if (currentUrl.EndsWith("aduser"))
+                adminUser.Attributes["class"] = "active";
         }
     }
 }

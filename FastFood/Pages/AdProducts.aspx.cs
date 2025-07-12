@@ -22,6 +22,11 @@ namespace FastFood.Pages
             {
                 LoadProducts();
                 LoadCategories(ddlAddCategory);
+                //for(int i = 15; i <= 20;i++)
+                //{
+                //    DeleteOrder(i);
+                //}
+              
             }
         }
  
@@ -282,6 +287,51 @@ namespace FastFood.Pages
                     cmd.Parameters.AddWithValue("@ProductID", productId);
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        private void DeleteOrder(int orderId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+
+                try
+                {
+                    // 1. Xóa OrderDetails
+                    string deleteDetailsSql = @"
+                DELETE FROM OrderDetails 
+                WHERE OrderID = @OrderID";
+
+                    SqlCommand cmdDetails = new SqlCommand(deleteDetailsSql, conn, transaction);
+                    cmdDetails.Parameters.AddWithValue("@OrderID", orderId);
+                    cmdDetails.ExecuteNonQuery();
+
+                    // 2. Xóa OrderProductSnapshots
+                    string deleteSnapshotsSql = @"
+                DELETE FROM OrderProductSnapshots 
+                WHERE OrderID = @OrderID";
+
+                    SqlCommand cmdSnapshots = new SqlCommand(deleteSnapshotsSql, conn, transaction);
+                    cmdSnapshots.Parameters.AddWithValue("@OrderID", orderId);
+                    cmdSnapshots.ExecuteNonQuery();
+
+                    // 3. Xóa Orders
+                    string deleteOrderSql = @"
+                DELETE FROM Orders 
+                WHERE OrderID = @OrderID";
+
+                    SqlCommand cmdOrder = new SqlCommand(deleteOrderSql, conn, transaction);
+                    cmdOrder.Parameters.AddWithValue("@OrderID", orderId);
+                    cmdOrder.ExecuteNonQuery();
+
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw new Exception("Lỗi khi xóa đơn hàng: " + ex.Message);
                 }
             }
         }

@@ -18,7 +18,43 @@ namespace FastFood.Pages
             {
                 LoadStatistics();
                 LoadOrderStatusChartData();
+                LoadRevenueData();
             }
+        }
+        protected string RevenueDataJson { get; set; }
+
+        private void LoadRevenueData()
+        {
+
+            var revenueData = new List<object>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+            SELECT 
+                CONVERT(date, CreatedAt) AS OrderDate,
+                SUM(TotalAmount) AS Revenue
+            FROM Orders
+            WHERE OrderStatus = 'Completed'
+            GROUP BY CONVERT(date, CreatedAt)
+            ORDER BY OrderDate";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    revenueData.Add(new
+                    {
+                        date = Convert.ToDateTime(reader["OrderDate"]).ToString("yyyy-MM-dd"),
+                        revenue = Convert.ToDecimal(reader["Revenue"])
+                    });
+                }
+            }
+
+            // Chuyển thành JSON để JS dùng
+            RevenueDataJson = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(revenueData);
         }
         private void LoadStatistics()
         {
