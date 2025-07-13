@@ -304,21 +304,19 @@
     <Compile Include="Pages\MenuPage.aspx.designer.cs">
       <DependentUpon>MenuPage.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Include="Pages\Shared\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Shared\SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
-=======
     <Compile Include="Pages\OrderSuccess.aspx.cs">
       <DependentUpon>OrderSuccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\OrderSuccess.aspx.designer.cs">
       <DependentUpon>OrderSuccess.aspx</DependentUpon>
->>>>>>> feat/Cart
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Shared\Site.Master.cs">
