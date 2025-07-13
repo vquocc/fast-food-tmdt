@@ -113,16 +113,41 @@
             </div>
 
 
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <button type="button" class="position-relative" style="background-color: white; border: none; padding: 5px 10px; border-radius: 30px;">
+            <div style="display: flex; align-items: center; gap: 12px; position: relative;">
+                <button type="button" class="position-relative" onclick="toggleMiniCart()" style="background-color: white; border: none; padding: 5px 10px; border-radius: 30px;">
                     <a>
                         <i class="bi bi-basket" style="font-size: 1.5rem; color: #da001c"></i>
-                        <sapm style="color: #da001c">Order Now</sapm>
+                        <span style="color: #da001c">Order Now</span>
                     </a>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">3
+                    <span id="cartCount" runat="server" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">0
                     <span class="visually-hidden">unread messages</span>
                     </span>
                 </button>
+                <%--MiniCart--%>
+                <div id="miniCartContainer" style="display:none; position: absolute; top: 100%; right: 0; z-index: 9999; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); width: 400px; border-radius: 8px; padding: 15px; max-height: 500px; overflow-y: auto">
+                    <div>
+                        <asp:DataList ID="DataList1" runat="server" RepeatColumns="1">
+                            <ItemTemplate>
+                                <div style="display: flex; align-items: center; border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+                                    <div style="flex: 0 0 150px;">
+                                        <img src='<%# Eval("Product_Image") %>' alt="Sản phẩm" style="width: 100%; border-radius: 8px;" />
+                                    </div>
+                                    <div style="flex: 1; padding-left: 20px;">
+                                        <h5 style="margin: 0 0 5px;">
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProductName") %>' /></h5>
+                                        <p style="margin: 0;">
+                                            Đơn giá: 
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price", "{0:N0}") %>' />₫
+                                        </p>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:DataList>
+                    </div>
+                    <div style="position: sticky; bottom: 0; background: white; padding-top: 10px; border-top: 1px solid #ccc; text-align: right;">
+                        <asp:Button ID="btnCheckout" runat="server" CssClass="btn btn-danger fw-bold" Text="Đến giỏ hàng" OnClick="btnCheckout_Click" />
+                    </div>
+                </div>
                 <div style="text-align: right;">
                     <div style="color: white; font-weight: bold;">📞 0394383782</div>
                     <div style="font-size: 10px; background-color: #FDB913; padding: 2px 6px; border-radius: 4px; font-weight: bold;">GIAO HÀNG TẬN NƠI</div>
@@ -181,6 +206,16 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+    <script>
+        function toggleMiniCart() {
+            const cart = document.getElementById("miniCartContainer");
+            if (cart.style.display === "none" || cart.style.display === "") {
+                cart.style.display = "block";
+            } else {
+                cart.style.display = "none";
+            }
+        }
+    </script>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
