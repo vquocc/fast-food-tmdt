@@ -127,12 +127,14 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Pages\CategoryProduct.aspx" />
+    <Content Include="Pages\CheckOut.aspx" />
     <Content Include="Pages\Components\ProductItem.ascx" />
     <Content Include="Pages\CuaHang.aspx" />
     <Content Include="Pages\HomePage.aspx" />
     <Content Include="Pages\img\login.jpg" />
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Pages\MenuPage.aspx" />
+    <Content Include="Pages\OrderSuccess.aspx" />
     <Content Include="ScriptDB.sql" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -209,6 +211,13 @@
     <Compile Include="Pages\CategoryProduct.aspx.designer.cs">
       <DependentUpon>CategoryProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CheckOut.aspx.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CheckOut.aspx.designer.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Components\ProductItem.ascx.cs">
       <DependentUpon>ProductItem.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -243,6 +252,13 @@
     </Compile>
     <Compile Include="Pages\MenuPage.aspx.designer.cs">
       <DependentUpon>MenuPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderSuccess.aspx.cs">
+      <DependentUpon>OrderSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderSuccess.aspx.designer.cs">
+      <DependentUpon>OrderSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Shared\Site.Master.cs">
