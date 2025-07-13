@@ -311,6 +311,7 @@
     </Compile>
     <Compile Include="Pages\Shared\SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
+      </Compile>
     <Compile Include="Pages\OrderSuccess.aspx.cs">
       <DependentUpon>OrderSuccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
