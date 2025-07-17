@@ -19,6 +19,10 @@ namespace FastFood.Pages
                 LoadStatistics();
                 LoadOrderStatusChartData();
                 LoadRevenueData();
+                if (Session["UserID"] == null)
+                {
+                    Response.Redirect("HomePage.aspx");
+                }
             }
         }
         protected string RevenueDataJson { get; set; }

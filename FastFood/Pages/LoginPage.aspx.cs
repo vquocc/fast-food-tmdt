@@ -46,7 +46,7 @@ namespace FastFood.Pages
                         if (roleID == "1") 
                         {
                             ClientScript.RegisterStartupScript(this.GetType(), "alert",
-                                "Swal.fire('Thành công', 'Đăng nhập thành công!', 'success').then(() => { window.location='AdminDashboard.aspx'; });", true);
+                                "Swal.fire('Thành công', 'Đăng nhập thành công!', 'success').then(() => { window.location='AdDashboard.aspx'; });", true);
                         }
                         else 
                         {

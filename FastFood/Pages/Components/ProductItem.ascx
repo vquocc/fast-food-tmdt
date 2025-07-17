@@ -88,6 +88,7 @@
                 <i class="bi bi-person-check-fill" style="color: black"></i>
             </p>
         </div>
-        <asp:Button ID="Button1" runat="server" Text="Thêm vào giỏ hàng" CssClass="btn-add" />
+        <asp:Button ID="AddToCart" runat="server" Text="Thêm vào giỏ hàng" CssClass="btn-add" OnClick="AddToCart_Click" />
+
     </div>
 </div>

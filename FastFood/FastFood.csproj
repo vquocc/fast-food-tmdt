@@ -142,12 +142,16 @@
     <Content Include="Pages\AdProducts.aspx" />
     <Content Include="Pages\AdUser.aspx" />
     <Content Include="Pages\CategoryProduct.aspx" />
+    <Content Include="Pages\CheckOut.aspx" />
     <Content Include="Pages\Components\ProductItem.ascx" />
     <Content Include="Pages\CuaHang.aspx" />
     <Content Include="Pages\HomePage.aspx" />
     <Content Include="Pages\img\login.jpg" />
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Pages\MenuPage.aspx" />
+    <Content Include="Pages\OrderDetail.aspx" />
+    <Content Include="Pages\OrderDetailView.aspx" />
+    <Content Include="Pages\OrderSuccess.aspx" />
     <Content Include="ScriptDB.sql" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -260,6 +264,13 @@
     <Compile Include="Pages\CategoryProduct.aspx.designer.cs">
       <DependentUpon>CategoryProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CheckOut.aspx.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CheckOut.aspx.designer.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Components\ProductItem.ascx.cs">
       <DependentUpon>ProductItem.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -295,12 +306,33 @@
     <Compile Include="Pages\MenuPage.aspx.designer.cs">
       <DependentUpon>MenuPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrderDetail.aspx.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderDetail.aspx.designer.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderDetailView.aspx.cs">
+      <DependentUpon>OrderDetailView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderDetailView.aspx.designer.cs">
+      <DependentUpon>OrderDetailView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Shared\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Shared\SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderSuccess.aspx.cs">
+      <DependentUpon>OrderSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderSuccess.aspx.designer.cs">
+      <DependentUpon>OrderSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Shared\Site.Master.cs">
