@@ -18,6 +18,10 @@ namespace FastFood.Pages
         {
             if (!IsPostBack)
             {
+                if (Session["UserID"] == null)
+                {
+                    Response.Redirect("HomePage.aspx");
+                }
                 LoadUsers();
             }
         }

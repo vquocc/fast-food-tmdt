@@ -16,9 +16,14 @@ namespace FastFood.Pages
         string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
             loadOrder();
             loadProductDdlproduct();
             loadUserDdl();
+            
         }
 
         private void loadOrder()

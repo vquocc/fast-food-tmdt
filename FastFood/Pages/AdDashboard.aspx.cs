@@ -16,13 +16,14 @@ namespace FastFood.Pages
         {
             if (!IsPostBack)
             {
-                LoadStatistics();
-                LoadOrderStatusChartData();
-                LoadRevenueData();
                 if (Session["UserID"] == null)
                 {
                     Response.Redirect("HomePage.aspx");
                 }
+                LoadStatistics();
+                LoadOrderStatusChartData();
+                LoadRevenueData();
+              
             }
         }
         protected string RevenueDataJson { get; set; }

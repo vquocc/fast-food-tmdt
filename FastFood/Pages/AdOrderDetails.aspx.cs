@@ -16,6 +16,10 @@ namespace FastFood.Pages
         {
             if (!IsPostBack && Request.QueryString["id"] != null)
             {
+                if (Session["UserID"] == null)
+                {
+                    Response.Redirect("HomePage.aspx");
+                }
                 int orderId;
                 if (int.TryParse(Request.QueryString["id"], out orderId))
                 {

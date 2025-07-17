@@ -20,6 +20,10 @@ namespace FastFood.Pages
         {
             if (!IsPostBack)
             {
+                if (Session["UserID"] == null)
+                {
+                    Response.Redirect("HomePage.aspx");
+                }
                 LoadProducts();
                 LoadCategories(ddlAddCategory);
                 //for(int i = 15; i <= 20;i++)
