@@ -176,12 +176,12 @@ namespace FastFood.Pages
 
         protected void UpdateCartCount()
         {
-            HtmlGenericControl lblCartCount = (HtmlGenericControl)Master.FindControl("cartCount");
+            Literal cartCount = (Literal)Master.FindControl("cartCount");
 
             if (Session["UserId"] == null)
             {
-                if (lblCartCount != null)
-                    lblCartCount.InnerText = "0";
+                if (cartCount != null)
+                    cartCount.Text = "0";
                 return;
             }
 
@@ -198,8 +198,8 @@ namespace FastFood.Pages
                 object result = cmd.ExecuteScalar();
                 int count = (result != DBNull.Value && result != null) ? Convert.ToInt32(result) : 0;
 
-                if (lblCartCount != null)
-                    lblCartCount.InnerText = count.ToString();
+                if (cartCount != null)
+                    cartCount.Text = count.ToString();
             }
         }
 
@@ -208,6 +208,18 @@ namespace FastFood.Pages
             if (Session["UserId"] == null)
             {
                 Response.Redirect("~/Pages/LoginPage.aspx");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtFullAddress.Text))
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "Swal.fire('Thiếu thông tin', 'Vui lòng nhập địa chỉ giao hàng!', 'warning');", true);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "Swal.fire('Thiếu thông tin', 'Vui lòng nhập số điện thoại!', 'warning');", true);
                 return;
             }
 
@@ -221,18 +233,18 @@ namespace FastFood.Pages
 
                 try
                 {
-                    // Tạo đơn hàng mới
-                    string insertOrderQuery = "INSERT INTO Orders (UserID, OrderStatus, TotalAmount) OUTPUT INSERTED.OrderID VALUES (@UserID, @Status, @Total)";
+                    string insertOrderQuery = "INSERT INTO Orders (UserID, OrderStatus, TotalAmount, ShippingAddress, Phone) OUTPUT INSERTED.OrderID VALUES (@UserID, @Status, @Total, @ShippingAddress, @Phone)";
                     SqlCommand cmdOrder = new SqlCommand(insertOrderQuery, conn, tran);
                     cmdOrder.Parameters.AddWithValue("@UserID", userId);
                     cmdOrder.Parameters.AddWithValue("@Status", "Pending");
 
-                    // Tổng tiền tạm thời, tính sau khi có dữ liệu
                     decimal totalAmount = 0;
                     cmdOrder.Parameters.AddWithValue("@Total", totalAmount);
+                    cmdOrder.Parameters.AddWithValue("@ShippingAddress", txtFullAddress.Text.Trim());
+                    cmdOrder.Parameters.AddWithValue("@Phone", txtPhoneNumber.Text.Trim());
+
                     newOrderId = (int)cmdOrder.ExecuteScalar();
 
-                    // Lấy giỏ hàng
                     string selectCartQuery = @"SELECT c.ProductId, p.ProductName, p.Product_Image, p.Price, c.Quantity, cat.CategoryID, cat.CategoryName
                                        FROM Cart c
                                        JOIN Products p ON c.ProductId = p.ProductId
@@ -255,7 +267,6 @@ namespace FastFood.Pages
                         decimal subtotal = unitPrice * quantity;
                         totalAmount += subtotal;
 
-                        // Insert snapshot
                         string insertSnap = @"INSERT INTO OrderProductSnapshots (OrderID, ProductID, ProductName, UnitPrice, CategoryID, CategoryName) 
                                       OUTPUT INSERTED.SnapshotID
                                       VALUES (@OrderID, @ProductID, @ProductName, @UnitPrice, @CategoryID, @CategoryName)";
@@ -269,7 +280,6 @@ namespace FastFood.Pages
 
                         int snapshotId = (int)cmdSnap.ExecuteScalar();
 
-                        // Insert order detail
                         string insertDetail = @"INSERT INTO OrderDetails (OrderID, SnapshotID, Quantity, Subtotal)
                                         VALUES (@OrderID, @SnapshotID, @Quantity, @Subtotal)";
                         SqlCommand cmdDetail = new SqlCommand(insertDetail, conn, tran);
@@ -280,14 +290,12 @@ namespace FastFood.Pages
                         cmdDetail.ExecuteNonQuery();
                     }
 
-                    // Update lại tổng tiền của đơn hàng
                     string updateTotal = "UPDATE Orders SET TotalAmount = @Total WHERE OrderID = @OrderID";
                     SqlCommand cmdUpdateTotal = new SqlCommand(updateTotal, conn, tran);
                     cmdUpdateTotal.Parameters.AddWithValue("@Total", totalAmount);
                     cmdUpdateTotal.Parameters.AddWithValue("@OrderID", newOrderId);
                     cmdUpdateTotal.ExecuteNonQuery();
 
-                    // Xoá giỏ hàng
                     SqlCommand cmdDelete = new SqlCommand("DELETE FROM Cart WHERE UserId = @UserId", conn, tran);
                     cmdDelete.Parameters.AddWithValue("@UserId", userId);
                     cmdDelete.ExecuteNonQuery();

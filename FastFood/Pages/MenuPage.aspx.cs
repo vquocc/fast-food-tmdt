@@ -106,9 +106,9 @@ namespace FastFood.Pages
         {
             if (Session["UserID"] == null)
             {
-                HtmlGenericControl lblCartCount = (HtmlGenericControl)Master.FindControl("cartCount");
-                if (lblCartCount != null)
-                    lblCartCount.InnerText = "0";
+                Literal cartCount = (Literal)Master.FindControl("cartCount");
+                if (cartCount != null)
+                    cartCount.Text = "0";
                 return;
             }
 
@@ -125,9 +125,9 @@ namespace FastFood.Pages
                 object result = cmd.ExecuteScalar();
                 int count = (result != DBNull.Value && result != null) ? Convert.ToInt32(result) : 0;
 
-                HtmlGenericControl lblCartCount = (HtmlGenericControl)Master.FindControl("cartCount");
-                if (lblCartCount != null)
-                    lblCartCount.InnerText = count.ToString();
+                Literal cartCount = (Literal)Master.FindControl("cartCount");
+                if (cartCount != null)
+                    cartCount.Text = count.ToString();
             }
         }
 

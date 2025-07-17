@@ -45,6 +45,8 @@
                 cursor: pointer;
                 transform: scale(1.1);
             }
+
+            
     </style>
     <div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-indicators">
@@ -148,7 +150,6 @@
             <div class="text-center">Feedbacks or contact us for further discussion.</div>
         </div>
     </div>
-
     <%--Intagram--%>
     <div class="d-flex justify-content-around align-items-center mt-5 rounded-2" style="background-color: #333333; height: 100px">
         <div style="color: white; font-size: 34px;">Instagram FastFood</div>

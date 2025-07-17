@@ -35,6 +35,7 @@ namespace FastFood.Pages.Components
             {
                 AddToCartClicked(this, new AddToCartEventArgs(ProductID));
             }
+            Response.Redirect(Request.RawUrl);
         }
     }
 

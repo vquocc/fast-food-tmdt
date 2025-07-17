@@ -149,6 +149,8 @@
     <Content Include="Pages\img\login.jpg" />
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Pages\MenuPage.aspx" />
+    <Content Include="Pages\OrderDetail.aspx" />
+    <Content Include="Pages\OrderDetailView.aspx" />
     <Content Include="Pages\OrderSuccess.aspx" />
     <Content Include="ScriptDB.sql" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -304,14 +306,27 @@
     <Compile Include="Pages\MenuPage.aspx.designer.cs">
       <DependentUpon>MenuPage.aspx</DependentUpon>
     </Compile>
-
+    <Compile Include="Pages\OrderDetail.aspx.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderDetail.aspx.designer.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderDetailView.aspx.cs">
+      <DependentUpon>OrderDetailView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderDetailView.aspx.designer.cs">
+      <DependentUpon>OrderDetailView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Shared\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Shared\SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="Pages\OrderSuccess.aspx.cs">
       <DependentUpon>OrderSuccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

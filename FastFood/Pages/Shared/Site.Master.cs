@@ -23,30 +23,43 @@ namespace FastFood
                     lnkLogin.Visible = false;
                     btnLogout.Visible = true;
                 }
-                LoadCart();
+
             }
+            LoadCart();
         }
 
         protected void LoadCart()
         {
-            if (Session["UserId"] == null)
+            try
             {
-                return;
-            }
+                if (Session["UserId"] == null)
+                {
+                    cartCount.Text = "0";
+                    return;
+                }
 
-            int userId = Convert.ToInt32(Session["UserId"]);
-            using (SqlConnection con  = new SqlConnection(connectionString))
+                int userId = Convert.ToInt32(Session["UserId"]);
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT c.ProductId, p.ProductName, p.Product_Image, c.Quantity, p.Price FROM Cart c JOIN Products p ON c.ProductId = p.ProductId WHERE c.UserID = @UserId";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    DataList1.DataSource = dt;
+                    DataList1.DataBind();
+
+                    cartCount.Text = dt.Rows.Count.ToString();
+                }
+            }
+            catch
             {
-                string query = "SELECT c.ProductId, p.ProductName, p.Product_Image, c.Quantity, p.Price FROM Cart c JOIN Products p ON c.ProductId = p.ProductId  WHERE c.UserID = @UserId";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@UserId", userId);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                DataList1.DataSource = dt;
-                DataList1.DataBind();
+                cartCount.Text = "0"; 
             }
         }
+
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Clear();

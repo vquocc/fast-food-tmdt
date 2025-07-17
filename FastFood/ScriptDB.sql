@@ -46,6 +46,8 @@ CREATE TABLE Orders (
     OrderStatus NVARCHAR(50) NOT NULL, -- 'Pending', 'Confirmed', 'Completed'
     TotalAmount DECIMAL(10,2) NOT NULL,
     QRCode NVARCHAR(255), 
+    ShippingAddress NVARCHAR(MAX),
+    Phone NVARCHAR(20),
     CreatedAt DATETIME DEFAULT GETDATE(),
     UpdatedAt DATETIME,
     FOREIGN KEY (UserID) REFERENCES Users(UserID)

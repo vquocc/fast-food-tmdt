@@ -20,6 +20,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/gh/huynhan147/vietnam-local-picker/dist/vietnamlocate.data.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/huynhan147/vietnam-local-picker/dist/vietnamlocate.min.js"></script>
+
 
     <style>
         html, body, for {
@@ -110,6 +113,8 @@
                 <asp:HyperLink ID="lnkMenu" runat="server" NavigateUrl="~/Pages/MenuPage.aspx" CssClass="menu-item">THỰC ĐƠN </asp:HyperLink>
 
                 <asp:HyperLink ID="lnkStore" runat="server" NavigateUrl="~/Pages/CuaHang.aspx" CssClass="menu-item">CỬA HÀNG </asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/OrderDetail.aspx" CssClass="menu-item">ĐƠN HÀNG </asp:HyperLink>
+
             </div>
 
 
@@ -119,12 +124,13 @@
                         <i class="bi bi-basket" style="font-size: 1.5rem; color: #da001c"></i>
                         <span style="color: #da001c">Order Now</span>
                     </a>
-                    <span id="cartCount" runat="server" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">0
-                    <span class="visually-hidden">unread messages</span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
+                        <asp:Literal ID="cartCount" runat="server" />
+                        <span class="visually-hidden">unread messages</span>
                     </span>
                 </button>
                 <%--MiniCart--%>
-                <div id="miniCartContainer" style="display:none; position: absolute; top: 100%; right: 0; z-index: 9999; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); width: 400px; border-radius: 8px; padding: 15px; max-height: 500px; overflow-y: auto">
+                <div id="miniCartContainer" style="display: none; position: absolute; top: 100%; right: 0; z-index: 9999; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); width: 400px; border-radius: 8px; padding: 15px; max-height: 500px; overflow-y: auto">
                     <div>
                         <asp:DataList ID="DataList1" runat="server" RepeatColumns="1">
                             <ItemTemplate>
